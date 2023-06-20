@@ -33,3 +33,17 @@ $ minikube status
 Check the minikube using kubectl:
 $ kubectl get pods
 $ kubectl get svc
+
+
+
+
+EXPERIMENT :::9
+
+
+$ kubectl create deployment hello-node --image=k8s.gcr.io/echoserver:1.4
+$ kubectl expose deployment hello-node --type=NodePort --port=8080
+$ kubectl get svc (USE PORT NUM )
+Note also that we can access it within the cluster via $(minikube ip):$NODE_PORT::
+$ minikube ip
+$ curl 172.31.50.87:32256
+$ minikube service hello-node
